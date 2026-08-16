@@ -1,3 +1,68 @@
 @use "./variables.scss" as *;
 
 // put your custom CSS here!
+
+blockquote {
+  border-left: 4px solid var(--secondary);
+  background-color: rgba(0, 0, 0, 0.03);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: var(--darkgray);
+}
+
+[saved-theme="dark"] blockquote {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* =========================================
+   1. SUBSTACK-STYLE BREATHING ROOM
+========================================= */
+.center {
+  /* The center column is now 1000px wide, but we restrict the text itself */
+  article {
+    max-width: 70ch; /* 'ch' limits the line length to ~70 characters */
+    margin: 0 auto;  /* Perfectly centers the text block, creating massive, beautiful side padding */
+  }
+}
+
+/* =========================================
+   1. SHRINK LEFT PANEL FONTS & TITLE
+========================================= */
+/* Target the massive "DSAIL Knowledge Distillation" title */
+.page-title {
+  margin-top: 0;
+}
+.page-title a {
+  font-size: 1.2rem !important;
+  line-height: 1.2;
+}
+
+/* Make the Explorer font smaller and sleeker */
+.left {
+  font-size: 0.85rem !important;
+}
+.explorer button#explorer {
+  font-size: 1rem !important;
+  color: var(--secondary); /* Optional: gives it a nice accent color */
+}
+
+
+/* =========================================
+   2. FIX TEXT CLIPPING ON COLLAPSE
+========================================= */
+.explorer, .toc {
+  /* Prevent the parent container from masking the text */
+  overflow: visible !important;
+
+  button#explorer, button#toc {
+    white-space: nowrap !important;
+    overflow: visible !important;
+    height: auto !important;
+    min-height: 35px !important; /* Hard stop to prevent vertical crushing */
+    display: flex;
+    align-items: center;
+  }
+}
+
